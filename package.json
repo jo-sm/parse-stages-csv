@@ -1,0 +1,31 @@
+{
+  "name": "@jo-sm/parse-stages-csv",
+  "version": "1.0.0",
+  "description": "Parse Stages cycling CSV files",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/jo-sm/parse-stages-csv.git"
+  },
+  "author": "Joshua Smock",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jo-sm/parse-stages-csv/issues"
+  },
+  "homepage": "https://github.com/jo-sm/parse-stages-csv#readme",
+  "devDependencies": {
+    "@types/jest": "^26.0.14",
+    "@types/node": "^14.11.2",
+    "jest": "^26.4.2",
+    "ts-jest": "^26.4.1",
+    "typescript": "^4.0.3"
+  },
+  "dependencies": {
+    "csv-parse": "^4.12.0"
+  }
+}
