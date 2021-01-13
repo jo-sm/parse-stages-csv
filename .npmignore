@@ -1,3 +1,5 @@
-src/
+  src/
 types/
 .github/
+jest.config.js
+tsconfig.json
