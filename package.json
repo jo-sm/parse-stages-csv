@@ -7,7 +7,10 @@
     "build": "tsc",
     "dev": "npm run build -- --watch",
     "test": "jest",
-    "test:watch": "npm test -- --watch"
+    "test:watch": "npm test -- --watch",
+    "lint:eslint": "eslint src/**/*.ts",
+    "lint:prettier": "prettier -c src/**/*.ts",
+    "lint:types": "tsc --noEmit"
   },
   "repository": {
     "type": "git",
@@ -22,6 +25,9 @@
   "devDependencies": {
     "@types/jest": "^26.0.14",
     "@types/node": "^15.0.2",
+    "@typescript-eslint/eslint-plugin": "^4.25.0",
+    "@typescript-eslint/parser": "^4.25.0",
+    "eslint": "^7.27.0",
     "jest": "^26.4.2",
     "prettier": "^2.2.1",
     "ts-jest": "^26.4.1",
