@@ -23,6 +23,8 @@ type LineBase = {
 };
 
 type LineCSV = LineBase & {
+  // TODO: strictly type this
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [Columns.COM]: any;
 };
 
@@ -55,7 +57,6 @@ export async function* parseFile(
     ![1, 2].includes(rawStagesOption.length)
   ) {
     throw new Error(
-      // @ts-ignore-next-line
       `Expected an array of 1 or 2 numbers, got an array of length ${rawStagesOption.length}`
     );
   }
@@ -125,7 +126,7 @@ export async function* parseFile(
 
           if (pieces.length === 1) {
             // Time from the Stages bike will always have at least one colon, so this is an invalid time.
-            if (value.match(/Stage\_[0-9][0-9]/)) {
+            if (value.match(/Stage_[0-9][0-9]/)) {
               currentStage++;
             }
 

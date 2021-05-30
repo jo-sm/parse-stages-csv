@@ -36,6 +36,10 @@ describe("index", () => {
       for await (line of index.parseFile(fixturePath)) {
         //
       }
+
+      // `line` does exist, but for some reason not in the way the looping is constructed.
+      // TODO: find a way that doesn't require `line!`
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       expect(line!).toStrictEqual({
         currentTime: 2528,
         km: 21.39,
@@ -52,7 +56,7 @@ describe("index", () => {
     describe("options", () => {
       describe("options.stages", () => {
         it("should parse a number or an array of a single number as a single stage", async () => {
-          let stage: number = -1;
+          let stage = -1;
 
           for await (const line of index.parseFile(fixturePath, {
             stages: 2,
@@ -108,12 +112,12 @@ describe("index", () => {
 
         it("should throw if given an array of more than 2 elements or 0 elements", () => {
           expect(() =>
-            // @ts-ignore-next-line
+            // @ts-expect-error: Empty array (only for compiled JS)
             index.parseFile(fixturePath, { stages: [] }).next()
           ).rejects.toThrow();
 
           expect(() =>
-            // @ts-ignore-next-line
+            // @ts-expect-error: More than 2 items (only for compiled JS)
             index.parseFile(fixturePath, { stages: [2, 3, 4] }).next()
           ).rejects.toThrow();
         });
