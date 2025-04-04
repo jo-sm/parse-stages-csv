@@ -1,6 +1,8 @@
 # `parse-stages-csv`
 
-`parse-stages-csv` is a parser for [Stages indoor bicycle](https://www.stagesindoorcycling.com) CSV data. It allows for parsing the raw CSV data, turning it into a more usable object, with additional metadata like the current stage that the line was recorded during.
+⚠️ **I've moved away from using Stages bicycles that take a USB stick, and personally haven't used this library for a while, so there will be no more updates to this, but it should still work.** ⚠️
+
+`parse-stages-csv` is a parser for [Stages indoor bicycle](https://www.stagesindoorcycling.com) CSV data, typically collected via a USB stick inserted into the bike computer. It parses the (generally difficult to use) raw CSV data, turning it into a more usable object, with additional metadata like the current stage that the line was recorded during.
 
 # Installation
 
@@ -30,7 +32,7 @@ Note that data that the parser considers "unreliable", i.e. data with a bad `COM
 
 You can optionally pass in two options, `stages` and `normalize`.
 
-The `stages` option allows you to select which stages you want in your output. Passing in a number or an array of a single number treats it as if you want just that stage, while passing in an array of numbers selects those stages.
+The `stages` option allows you to select which stages you want in your output. Passing in a number or an array of a single number treats it as if you want just that stage, while passing in an array of numbers selects the range of those stages, inclusive.
 
 ```javascript
 for await (const datum of parseStagesCSV(filename, { stages: [3, 5] })) {
